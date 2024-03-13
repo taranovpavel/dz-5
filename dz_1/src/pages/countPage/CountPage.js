@@ -1,6 +1,6 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-
+import classes from "./CountPage.module.css";
 const CountPage = () => {
     const count = useSelector(state => state.count)
     const dispatch = useDispatch()
@@ -46,11 +46,13 @@ const CountPage = () => {
     return (
         <>
             <h1>{count}</h1>
-            <button onClick={minusTen}>-10</button>
-            <button onClick={minusOne}>-1</button>
-            <button onClick={reset}>reset</button>
-            <button onClick={plusOne}>+1</button>
-            <button onClick={plusTen}>+10</button>
+            <div className={classes.buttons}>
+                <button onClick={minusTen}>-10</button>
+                <button onClick={minusOne}>-1</button>
+                <button onClick={reset}>reset</button>
+                <button onClick={plusOne}>+1</button>
+                <button onClick={plusTen}>+10</button>
+            </div>
         </>
     );
 };
