@@ -10,16 +10,14 @@ const CalculatorPage = () => {
 
     // if((num_one !== undefined)&&(num_two !== undefined)){} ( Проверка на пустой инпут не пригодилась так как он не позволяет сделать его пустым )
     const makeResult = (sign) => {
-        if((num_one !== "")&&(num_two !== "")){
-            if (sign === "+"){
-                dispatch(makeResultAction(num_one + num_two))
-            }else if (sign ==="-"){
-                dispatch(makeResultAction(num_one - num_two))
-            }else if (sign ==="*"){
-                dispatch(makeResultAction(num_one * num_two))
-            }else if (sign ==="/"){
-                dispatch(makeResultAction(num_one / num_two))
-            }
+        if (sign === "+"){
+            dispatch(makeResultAction(num_one + num_two))
+        }else if (sign ==="-"){
+            dispatch(makeResultAction(num_one - num_two))
+        }else if (sign ==="*"){
+            dispatch(makeResultAction(num_one * num_two))
+        }else if (sign ==="/"){
+            dispatch(makeResultAction(num_one / num_two))
         }
     }
     return (
