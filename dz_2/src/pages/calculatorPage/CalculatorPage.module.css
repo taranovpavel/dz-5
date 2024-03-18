@@ -1,0 +1,29 @@
+.equation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-size: 54px;
+    margin: 250px 0 ;
+}
+.equation input{
+    width: 180px;
+    height: 150px;
+    font-size: 54px;
+    -moz-appearance: textfield;
+    border-radius: 10px;
+    /*-webkit-appearance: none;*/
+}
+.equation p{
+    color: #fff;
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.buttons button{
+    font-size: 22px;
+    width: 30px;
+    height: 30px;
+}

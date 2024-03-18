@@ -28,3 +28,21 @@ export function deleteUsersAction(){
         type: types.DELETE,
     }
 }
+export function changeNumOneAction(value){
+    return{
+        type: types.CHANGE_NUM_ONE,
+        payload: value,
+    }
+}
+export function changeNumTwoAction(value){
+    return{
+        type: types.CHANGE_NUM_TWO,
+        payload: value,
+    }
+}
+export function makeResultAction(result){
+    return{
+        type: types.MAKE_RESULT,
+        payload: result,
+    }
+}

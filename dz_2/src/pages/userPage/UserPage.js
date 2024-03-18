@@ -18,6 +18,7 @@ const UserPage = () => {
     }
     return (
         <div>
+            <h1>{value}</h1>
             <input value={value} onChange={changeInput} type="text" placeholder={"name"}/>
             <button onClick={addUser} >add</button>
             <button onClick={deleteUsers}>delete</button>
