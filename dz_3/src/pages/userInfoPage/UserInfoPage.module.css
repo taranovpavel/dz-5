@@ -1,0 +1,21 @@
+.user{
+    width: 320px;
+    height: 640px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+}
+.user img{
+    width: 250px;
+    height: 250px;
+}
+.user p {
+    text-align: left;
+}
+.user div{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
