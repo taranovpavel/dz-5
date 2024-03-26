@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {Row, Col, Form, Button, Container, Spinner} from 'react-bootstrap'
-import classes from "./RegistrationPage.module.css"
 import {useDispatch, useSelector} from "react-redux";
 import {addUserAction, registerNewAccountAction} from "../../redux/actions";
 
