@@ -9,7 +9,7 @@ function App() {
       <Menu/>
       <Routes>
         <Route index element={<UserRegisterPage/>}/>
-        <Route patch={"/users"} element={UsersListPage}/>
+        <Route patch={"/users"} element={<UsersListPage/>}/>
       </Routes>
     </BrowserRouter>
   );
