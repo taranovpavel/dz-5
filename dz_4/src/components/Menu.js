@@ -1,17 +1,18 @@
 import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import classes from "./Menu.module.css";
 
 function Menu() {
     return (
-        <Navbar bg="light" expand="lg">
-            <Container>
-                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar className={classes.menu} bg="dark" expand="lg">
+            <Container  >
+                <Navbar.Toggle className="me-2" aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse className="me-2" id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <NavLink to="/" className="me-2">register user</NavLink>
-                        <NavLink to="/users">users list</NavLink>
+                        <NavLink to="/users" className="me-2">users list</NavLink>
+                        <NavLink to="/registration"> registration</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

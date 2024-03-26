@@ -27,3 +27,21 @@ export function addUserAction(user){
         }
     }
 }
+export function registerNewAccountAction(data){
+    return async function(dispatch) {
+        dispatch(preloaderOn())
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": 'application/json'
+            },
+            body: JSON.stringify(data)
+        }
+        const response = await fetch("https://jsonplaceholder.typicode.com/users", options)
+        if (response.status >= 200 || response.status <= 204){
+            dispatch(preloaderOff())
+            alert("New account created successfully")
+        }
+    }
+}
+

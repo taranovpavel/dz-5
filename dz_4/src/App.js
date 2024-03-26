@@ -3,6 +3,8 @@ import UsersListPage from "./page/usersListPage/UsersListPage";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import UserRegisterPage from "./page/userRegisterPage/UserRegisterPage";
 import Menu from "./Components/Menu";
+import RegistrationPage from "./page/registrationPage/RegistrationPage";
+import classes from "./App.css"
 function App() {
   return (
     <BrowserRouter>
@@ -10,6 +12,7 @@ function App() {
       <Routes>
         <Route index element={<UserRegisterPage/>}/>
         <Route patch={"/users"} element={<UsersListPage/>}/>
+        <Route path={"/registration"} element={<RegistrationPage/>}/>
       </Routes>
     </BrowserRouter>
   );

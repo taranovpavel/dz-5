@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {Row, Col, Form, Button, Container, Spinner} from 'react-bootstrap'
 import {useDispatch, useSelector} from "react-redux";
 import {addUserAction} from "../../redux/actions"
-import preloaderReducer from "../../redux/reducers/PreloaderReducer";
+
 function UserRegisterPage() {
     const {preloader} = useSelector(state => state.preloaderReducer)
     const dispatch = useDispatch()
@@ -24,7 +24,6 @@ function UserRegisterPage() {
 
         if (user.name === '' || user.username === '' || user.email === '') {
             alert('Заполни все поля!')
-            return
         }
     }
 
