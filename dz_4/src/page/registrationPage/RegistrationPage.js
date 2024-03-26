@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {Row, Col, Form, Button, Container, Spinner} from 'react-bootstrap'
+import {Form, Button, Container, Spinner} from 'react-bootstrap'
 import {useDispatch, useSelector} from "react-redux";
-import {addUserAction, registerNewAccountAction} from "../../redux/actions";
+import {registerNewAccountAction} from "../../redux/actions";
 
 const RegistrationPage = () => {
     const {preloader} = useSelector(state => state.registrationReducer)
