@@ -1,66 +1,45 @@
 import React, {useState} from 'react';
-import Container from "../../components/Container";
-import {Button} from "../../components/Button";
-import {Input} from "../../components/Input";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {getPost} from "../../redux/MainSlice";
+
 
 const MainPage = () => {
     const dispatch = useDispatch()
-    const [Class , setClass] = useState({
-        variant: "delete",
-        isOK: false
-    })
+    const {isFirsAccount} = useSelector(state => state.MainSlice)
     const [data, setData] = useState({
-        number: "",
-        email:"",
-        password:""
+        password: "",
+        username:"",
+        repeatPassword:""
     })
     const formValue = (event) => {
         setData({
             ...data,
             [event.target.name]: event.target.value
         })
-        if ((data.password.length < 6) || (data.email.length< 6) || (data.number.length< 6)){
-            setClass({
-                ...Class,
-                variant: "delete",
-                isOK: false
-            })
-            console.log(data)
+    }
+    const registerNewAccount = (event) => {
+        if (data.password === ""|| data.repeatPassword === ""||data.username === ""){
+            alert("Fill in all the fields")
+            event.preventDefault()
+        }else if(data.password !== data.repeatPassword){
+            event.preventDefault()
+            alert("Password mismatch")
+        }else if(isFirsAccount === true){
+            event.preventDefault()
+            alert("You have successfully created a new account")
+            dispatch(getPost())
         }else{
-            setClass({
-                ...Class,
-                variant: "primary",
-                isOK: true
-            })
+            event.preventDefault()
+            alert("You have already created an account")
         }
     }
-
     return (
-        <Container variant={"small"}>
-            <div style={{display: "flex"}}>
-                <Input
-                    onChange={formValue}
-                    label="введите пароль"
-                    placeholder="password"
-                    name='password'
-                    type="password"
-                ></Input>
-                <Input
-                    onChange={formValue}
-                    name='email'
-                    label="введите почту"
-                ></Input>
-                <Input
-                    name='number'
-                    onChange={formValue}
-                    label="введите номер"
-                ></Input>
-            </div>
-            <Button oonClick={Class.isOK?()=>dispatch(getPost()):""} variant={Class.variant}>signup</Button>
-        </Container>
+        <div>
+            <input placeholder={"Username"} onChange={formValue} name="username" type="text"/>
+            <input placeholder={"Password"} onChange={formValue} name="password" type="text"/>
+            <input placeholder={"Repeat password"} onChange={formValue} name="repeatPassword" type="text"/>
+            <button onClick={registerNewAccount}>Register New Account</button>
+        </div>
     );
 };
-
 export default MainPage;

@@ -6,20 +6,23 @@ export const getPost = createAsyncThunk(
         const response= await fetch("https://jsonplaceholder.typicode.com/posts")
         const data = await response.json()
         dispatch(getPosts(data))
+        dispatch(AccountFalse())
     }
 )
-
 const MainSlice = createSlice({
-    name: "postSlice",
+    name: "MainSlice",
     initialState: {
-        title: "title",
+        isFirsAccount: true,
         posts: []
     },
     reducers:{
         getPosts:(state,action)=>{
             state.posts = action.payload
+        },
+        AccountFalse:(state)=>{
+            state.isFirsAccount = false
         }
     }
 })
-export const {getPosts} = MainSlice.actions
+export const {getPosts, AccountFalse} = MainSlice.actions
 export default MainSlice.reducer
