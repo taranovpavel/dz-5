@@ -9,7 +9,7 @@ const MainPage = () => {
     const dispatch = useDispatch()
     const [Class , setClass] = useState({
         variant: "delete",
-        func: ""
+        isOK: false
     })
     const [data, setData] = useState({
         number: "",
@@ -21,17 +21,18 @@ const MainPage = () => {
             ...data,
             [event.target.name]: event.target.value
         })
-        if ((data.password.length < 6) && (data.email.length< 6) && (data.number.length< 6)){
+        if ((data.password.length < 6) || (data.email.length< 6) || (data.number.length< 6)){
             setClass({
                 ...Class,
-                variant: "delete"
+                variant: "delete",
+                isOK: false
             })
             console.log(data)
         }else{
             setClass({
                 ...Class,
                 variant: "primary",
-                func: "getPost"
+                isOK: true
             })
         }
     }
@@ -57,7 +58,7 @@ const MainPage = () => {
                     label="введите номер"
                 ></Input>
             </div>
-            <Button oonClick={()=>dispatch(getPost())} variant={Class.variant}>signup</Button>
+            <Button oonClick={Class.isOK?()=>dispatch(getPost()):""} variant={Class.variant}>signup</Button>
         </Container>
     );
 };
